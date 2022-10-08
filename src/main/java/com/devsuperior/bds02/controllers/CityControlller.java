@@ -30,4 +30,10 @@ public class CityControlller {
                 .buildAndExpand(cityDto.getId()).toUri();
         return ResponseEntity.created(uri).body(cityDto);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
